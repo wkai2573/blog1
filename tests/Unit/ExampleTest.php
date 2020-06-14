@@ -13,6 +13,7 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
+        //測試 true 是不是等於 true
         $this->assertTrue(true);
     }
 }

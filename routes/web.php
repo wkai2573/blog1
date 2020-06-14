@@ -17,4 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//dev 5
+//自訂路由
+Route::get('/hello-world', function () {
+    return view('hello_world');
+});

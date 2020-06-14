@@ -14,8 +14,10 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
+        //連線 / 並取得回傳
         $response = $this->get('/');
 
+        //檢查回傳的 HTTP Status 是不是 200
         $response->assertStatus(200);
     }
 }
