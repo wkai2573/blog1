@@ -17,7 +17,7 @@ class ExampleTest extends TestCase
         //連線 / 並取得回傳
         $response = $this->get('/');
 
-        //檢查回傳的 HTTP Status 是不是 200
+        //檢查回傳的 HTTP Status 是不是 200 (成功連線)
         $response->assertStatus(200);
     }
 }
