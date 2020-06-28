@@ -31,6 +31,16 @@ Route::get('/about_us', function () {
   return view('about_us', ['name' => 'Laravel 範例']);
 });
 
+// laravel/ui 產生__________
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/test', function(){
+	var_dump(Auth::check());
+});
+
+
 // Controller__________
 
 // 交給 Controller 處理
@@ -69,3 +79,4 @@ Route::get('/postsByTag1', function () {
   $posts = $tag->posts;
   return $posts;
 });
+
