@@ -36,15 +36,20 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/test', function(){
-	var_dump(Auth::check());
+//取得使用者資訊
+Route::get('/getAuth', function () {
+  $isLogin = Auth::check();
+  $user = Auth::user();
+  echo "登入:" . ($isLogin ? '是' : '否') . "<br>使用者資訊:" . $user;
 });
 
-
-// Controller__________
-
+// Controller BREAD__________
 // 交給 Controller 處理
 Route::get('/inspire', 'inspireController@inspire');
+
+// resource = 一次宣告7個請求，參考 https://ithelp.ithome.com.tw/articles/10217723
+// 呼叫PostController.index()方法 => http://127.0.0.1/posts/
+Route::resource('posts', 'PostController');
 
 // 測試新增
 Route::get('/add', function () {
@@ -63,7 +68,7 @@ Route::get('/getPost', function () {
 });
 // 取得post，使用LazyCollection物件(取用時才抓資料)
 Route::get('/getPost2', function () {
-	return Post::cursor()->slice(10, 5);
+  return Post::cursor()->slice(10, 5);
 });
 
 // 取得subject id1 的 posts
@@ -79,4 +84,3 @@ Route::get('/postsByTag1', function () {
   $posts = $tag->posts;
   return $posts;
 });
-
