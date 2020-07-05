@@ -11,9 +11,9 @@ class PostTableSeeder extends Seeder {
    * @return void
    */
   public function run() {
-		//產生1000個post，其subject是找 name='測試主題' 的subject
+		//產生10個post，其subject是找 name='測試主題' 的subject
     $subject = Subject::where('name', '測試主題')->first();
-    for ($i = 0; $i < 1000; $i++) {
+    for ($i = 1; $i <= 10; $i++) {
       $post = new Post;
       $post->content = 'Laravel 文章'.$i;
       $post->subject_id = $subject->id;

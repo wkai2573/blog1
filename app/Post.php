@@ -3,8 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes; //引用軟刪除namespace
 
 class Post extends Model {
+
+	use SoftDeletes; //使用軟刪除
+
   /**
    * The attributes that are mass assignable.
    * 可修改欄位

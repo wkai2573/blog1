@@ -84,3 +84,9 @@ Route::get('/postsByTag1', function () {
   $posts = $tag->posts;
   return $posts;
 });
+
+// 刪除post
+Route::get('/delete', function(){
+	$post = Post::find(2);
+	$post->delete();
+});
